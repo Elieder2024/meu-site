@@ -6,38 +6,41 @@
     <title>Sabe Xero?</title>
     <style>
         body {
-            font-family: 'Times New Roman', Times, serif;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
+            color: #333;
         }
         header {
-            background-color: #333;
+            background-color: #ff6666;
             color: #fff;
-            padding: 10px 0;
+            padding: 20px 0;
             text-align: center;
-            font-size: 24px;
+            font-size: 36px;
+            font-weight: bold;
         }
         nav {
-            background-color: #444;
+            background-color: #ffcc00;
             overflow: hidden;
         }
         nav a {
             float: left;
             display: block;
-            color: #f2f2f2;
+            color: #333;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
+            font-size: 18px;
         }
         nav a:hover {
-            background-color: #ddd;
-            color: black;
+            background-color: #ff9966;
+            color: white;
         }
         .container {
             padding: 20px;
         }
-        .biografia, .galera, .contatos, .cadastro {
+        .biografia, .galera, .contatos, .cadastro, .login {
             margin-bottom: 30px;
             padding: 20px;
             background-color: #fff;
@@ -51,7 +54,7 @@
             width: 100%;
             height: auto;
         }
-        .cadastro input, .cadastro button {
+        .cadastro input, .cadastro button, .login input, .login button {
             display: block;
             width: 100%;
             padding: 10px;
@@ -67,6 +70,9 @@
             width: 100%;
             bottom: 0;
         }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -78,6 +84,7 @@
         <a href="#galera">Galera</a>
         <a href="#contatos">Contatos</a>
         <a href="#cadastro">Cadastro</a>
+        <a href="#login">Login</a>
     </nav>
     <div class="container">
         <section id="biografia" class="biografia">
@@ -95,16 +102,51 @@
         </section>
         <section id="cadastro" class="cadastro">
             <h2>Cadastro</h2>
-            <form>
-                <input type="text" name="nome" placeholder="Nome" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="senha" placeholder="Senha" required>
+            <form id="cadastroForm">
+                <input type="text" id="nome" name="nome" placeholder="Nome" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="password" id="senha" name="senha" placeholder="Senha" required>
                 <button type="submit">Cadastrar</button>
+            </form>
+        </section>
+        <section id="login" class="login hidden">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" name="email" placeholder="Email" required>
+                <input type="password" id="loginSenha" name="senha" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
             </form>
         </section>
     </div>
     <div class="footer">
         &copy; 2024 Sabe Xero? Todos os direitos reservados.
     </div>
+
+    <script>
+        document.getElementById('cadastroForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+            const usuario = { nome, email, senha };
+            localStorage.setItem('usuario', JSON.stringify(usuario));
+            alert('Cadastro realizado com sucesso!');
+            document.getElementById('cadastro').classList.add('hidden');
+            document.getElementById('login').classList.remove('hidden');
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const senha = document.getElementById('loginSenha').value;
+            const usuario = JSON.parse(localStorage.getItem('usuario'));
+            if (usuario && usuario.email === email && usuario.senha === senha) {
+                alert('Login realizado com sucesso!');
+                // Aqui você pode redirecionar o usuário para a página principal ou área de usuário
+            } else {
+                alert('Email ou senha incorretos!');
+            }
+        });
+    </script>
 </body>
 </html>
