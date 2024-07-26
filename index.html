@@ -1,99 +1,110 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Site Pessoal</title>
+    <title>Sabe Xero?</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
         }
         header {
             background-color: #333;
             color: #fff;
-            padding: 1rem 0;
+            padding: 10px 0;
             text-align: center;
-        }
-        header h1 {
-            margin: 0;
+            font-size: 24px;
         }
         nav {
             background-color: #444;
-            padding: 1rem;
-            text-align: center;
+            overflow: hidden;
         }
         nav a {
-            color: #fff;
-            margin: 0 1rem;
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
             text-decoration: none;
         }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
         .container {
-            padding: 2rem;
+            padding: 20px;
         }
-        .bio, .projects, .gallery, .contact {
-            margin-bottom: 2rem;
+        .biografia, .galera, .contatos, .cadastro {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .gallery img {
+        .biografia p, .contatos p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .galera img {
             width: 100%;
-            max-width: 300px;
-            margin: 0.5rem;
+            height: auto;
         }
-        footer {
+        .cadastro input, .cadastro button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .footer {
             background-color: #333;
             color: #fff;
             text-align: center;
-            padding: 1rem 0;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Meu Site Pessoal</h1>
+        Sabe Xero?
     </header>
     <nav>
-        <a href="#bio">Biografia</a>
-        <a href="#projects">Projetos</a>
-        <a href="#gallery">Galeria</a>
-        <a href="#contact">Contato</a>
+        <a href="#biografia">Biografia</a>
+        <a href="#galera">Galera</a>
+        <a href="#contatos">Contatos</a>
+        <a href="#cadastro">Cadastro</a>
     </nav>
     <div class="container">
-        <section id="bio" class="bio">
+        <section id="biografia" class="biografia">
             <h2>Biografia</h2>
-            <p>Sou um programador inexperiente apaixonado por tecnologia e desenvolvimento de software. Estou sempre em busca de novos conhecimentos e desafios que me permitam crescer profissionalmente.</p>
+            <p>Jornal</p>
         </section>
-        <section id="projects" class="projects">
-            <h2>Projetos</h2>
-            <ul>
-                <li>Projeto 1 - Descrição do projeto 1.</li>
-                <li>Projeto 2 - Descrição do projeto 2.</li>
-                <li>Projeto 3 - Descrição do projeto 3.</li>
-            </ul>
+        <section id="galera" class="galera">
+            <h2>Galera</h2>
+            <img src="https://via.placeholder.com/800x400.png?text=Fotos+de+Noticiários" alt="Fotos de Noticiários">
         </section>
-        <section id="gallery" class="gallery">
-            <h2>Galeria</h2>
-            <div>
-                <img src="https://imgur.com/a/8gPKPrK" alt="Imagem 1">
-                <img src="https://via.placeholder.com/300" alt="Imagem 2">
-                <img src="https://via.placeholder.com/300" alt="Imagem 3">
-            </div>
+        <section id="contatos" class="contatos">
+            <h2>Contatos</h2>
+            <p>Email: <a href="mailto:contato@sabexero.com">contato@sabexero.com</a></p>
+            <p>Redes Sociais: <a href="https://www.linkedin.com">LinkedIn</a>, <a href="https://www.github.com">GitHub</a>, <a href="https://www.instagram.com">Instagram</a></p>
         </section>
-        <section id="contact" class="contact">
-            <h2>Contato</h2>
-            <p>Você pode me encontrar nas seguintes redes sociais:</p>
-            <ul>
-                <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
-                <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
-                <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
-            </ul>
-            <p>Ou enviar um email para: <a href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a></p>
+        <section id="cadastro" class="cadastro">
+            <h2>Cadastro</h2>
+            <form>
+                <input type="text" name="nome" placeholder="Nome" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="senha" placeholder="Senha" required>
+                <button type="submit">Cadastrar</button>
+            </form>
         </section>
     </div>
-    <footer>
-        <p>&copy; 2024 Meu Site Pessoal. Todos os direitos reservados.</p>
-    </footer>
+    <div class="footer">
+        &copy; 2024 Sabe Xero? Todos os direitos reservados.
+    </div>
 </body>
 </html>
